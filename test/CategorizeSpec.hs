@@ -19,7 +19,7 @@ spec :: Spec
 spec = do
     describe "calculateNumPerAge" $ do
         prop "input with Males" $ \xs ->
-            (over0Female $ calculateNumPerAge $ filterFemale xs) == 0
+            collect "male" $ (over0Female $ calculateNumPerAge $ filterFemale xs) == 0
         prop "input with Females" $ \xs ->
             (over0Female $ calculateNumPerAge $ filterMale xs) == 0
 

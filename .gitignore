@@ -7,5 +7,9 @@ cabal-dev
 *.chs.h
 .virthualenv
 .hpc
+*.html
+*.txt
+*.tix
 
+test/HPC/HpcMain
 *.sqlite3
