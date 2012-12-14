@@ -23,6 +23,8 @@ spec = do
         prop "input with Females" $ \xs ->
             (over0Female $ calculateNumPerAge $ filterMale xs) == 0
 
+        prop "input withMales2" $ prop_calcNumPerAge_inputMales
+
     describe "fromAllNumPerAge" $ do
         prop "whole size should be the same" $ \x ->
             (size x) == (numOfPerson $ fromAllNumPerAge x)
@@ -33,6 +35,14 @@ spec = do
                 == (length xs)
 
 --------------------------------------------------------------------------
+
+prop_calcNumPerAge_inputMales xs =
+    (all (\x -> (personSex x) == Male) xs) ==>
+    collect (show $ personSex <$> xs) $
+    classify ((length xs) > 10) "over 10" $
+    classify ((length xs) <= 10) "under 10" $
+    (over0Female $ calculateNumPerAge xs) == 0
+
 
 instance Arbitrary Person where
     arbitrary = return Person 
