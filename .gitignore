@@ -10,6 +10,5 @@ cabal-dev
 *.html
 *.txt
 *.tix
-
-test/HPC/HpcMain
+HpcMain
 *.sqlite3
