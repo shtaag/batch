@@ -5,10 +5,6 @@ import System.Exit
 import Control.Applicative
 
 main = exit <$> hspecWith option spec
---     if (summaryFailures summary) > 0 then
---         exitFailure
---       else
---         exitSuccess
 
 option :: Config
 option = defaultConfig { configVerbose = True}
