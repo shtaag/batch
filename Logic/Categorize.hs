@@ -11,6 +11,24 @@ import qualified Database.Persist as DB
 import Database.Persist.Sqlite
 import Model
 
+-- | Compute Fibonacci numbers
+--
+-- Examples:
+--
+-- >>> fib 10
+-- 55
+--
+-- >>> fib 5
+-- 5
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n - 1) + fib (n - 2)
+
+-- categorizing Person
+--
+-- >>> over0Male . calculateNumPerAge [Person "Jonathan" 18 Male, Person "Dio" 18 Male]
+-- 2
 calculateNumPerAge :: [Person] -> AllNumPerAge
 calculateNumPerAge xs = helper xs mempty
   where
